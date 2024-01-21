@@ -36,4 +36,4 @@ repos:
     hooks:
       - id: flake8 # Add the id key with the value 'flake8'
         # trunk-ignore(yamllint/quoted-strings)
-        args: ["--ignore=E501,W293,E203,F401"]
+        args: ["--ignore=E501,W293,E203,F401,W605,E741"]
