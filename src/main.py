@@ -13,7 +13,7 @@ from tqdm import tqdm
 import onlinehd
 from tools.clustering import clustering, process
 from tools.correction import correct_checksum, correct_clusters
-from tools.utils import error_injection_checksum, inject_error
+from tools.utils import error_injection_checksum, inject_error, error_injection_clusters
 
 # loads simple mnist dataset
 
@@ -111,7 +111,7 @@ def main():  # sourcery skip: avoid-builtin-shadow  # sourcery skip: avoid-built
         help="final error rate exponent",
     )
     parser.add_argument(
-        "--Thresh", type=float, required=True, default=0, help="Threshold Clusters"
+        "--Thresh", type=float, required=True, default=100, help="Threshold Clusters"
     )
     parser.add_argument(
         "--weight_cluster",
@@ -186,7 +186,8 @@ def main():  # sourcery skip: avoid-builtin-shadow  # sourcery skip: avoid-built
 
             # ------------------Clustering--------------------------------
             m = copy.deepcopy(m0)
-            m1, _ = correct_clusters(m.numpy(), D1, args.Thresh)
+            D1 = error_injection_clusters(D1, 10**(-p))
+            m1 = correct_clusters(m.numpy(), D1, args.Thresh)
             model.model = torch.tensor(m1)
             yhat_test = model(x_test)
             acc_test_new += (y_test == yhat_test).float().mean()

@@ -28,9 +28,9 @@ def correct_checksum(
 
 def correct_clusters(
     classHV: np.ndarray,
-    D: Dict[str, Dict[Tuple, np.ndarray]],
-    Th: int = 300,
-    alpha: int = 3,
+    D: Dict[Tuple, Dict[str, np.ndarray]],
+    Th: float = 300,
+    alpha: float = 3,
 ) -> np.ndarray:
     """
     Correct clusters in a classHV matrix based on specified thresholds and dictionary values.

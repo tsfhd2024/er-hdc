@@ -49,11 +49,12 @@ class OnlineHD(object):
         classes: int,
         features: int,
         dim: int = 4000,
-        encoding_system: str = "kernel",
+        n_levels: int=100,
+        encoding_system: str = "kernel"
     ):
         self.classes = classes
         self.dim = dim
-        self.encoder = Encoder(features, dim, encoding_system)
+        self.encoder = Encoder(features, n_levels, dim, encoding_system)
         self.model = torch.zeros(self.classes, self.dim)
 
     def __call__(self, x: torch.Tensor, encoded: bool = False):
