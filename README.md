@@ -73,11 +73,13 @@ For academic use, please cite this work as follows:
 ## <span id="citelink">Citation</span>
 If you find this repository useful in your research, please consider citing the following papers:
 ```
-@article{Er-HDC2024,
-  author        = {Mohamed mejri and Chandramouli Amarnath and Abhijit Chatterjee},
-  title         = {Error Resilient Hyperdimensional Computing Using Hypervector Encoding and Cross-Clustering},
-  conference    = {IEEE VLSI Test Symposium},
-  year          = {2024},
+@misc{mejri2024novel,
+      title={A Novel Hyperdimensional Computing Framework for Online Time Series Forecasting on the Edge}, 
+      author={Mohamed Mejri and Chandramouli Amarnath and Abhijit Chatterjee},
+      year={2024},
+      eprint={2402.01999},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
 }
 ```
 
